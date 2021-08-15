@@ -64,9 +64,63 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->  
             <li class="nav-item">
-                <a href="{{route('home')}}" class="nav-link active">
+                <a href="{{route('home')}}" class="nav-link">
                 <i class="fas fa-tachometer-alt nav-icon"></i>
                 <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('tiket.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Tiket</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('jurnal.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Jurnal</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('detail_murabahah.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Detail Murabahah</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('wakalah.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Wakalah</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('angsuran.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Angsuran</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('setoran.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Setoran</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('kasir.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Kasir</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('kirim_barang.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Kirim Barang</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('terima_barang.index')}}" class="nav-link">
+                <i class="fas fa-ticket-alt nav-icon"></i>
+                <p>Terima Barang</p>
                 </a>
             </li>
             <li class="nav-header">Pengaturan</li>
@@ -124,7 +178,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-@yield('script')
+
 <!-- jQuery -->
 <script src="{{asset('public/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -142,5 +196,6 @@
 <script src="{{asset('public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('public/dist/js/adminlte.js')}}"></script>
+@yield('script')
 </body>
 </html>
