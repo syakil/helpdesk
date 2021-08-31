@@ -20,7 +20,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/tiket', 'TiketController@index')->name('tiket.index');
 Route::get('/jurnal', 'JurnalController@index')->name('jurnal.index');
 Route::get('/detail_murabahah', 'DetailMurabahahController@index')->name('detail_murabahah.index');
 Route::get('/wakalah', 'WakalahController@index')->name('wakalah.index');
@@ -33,6 +32,9 @@ Route::get('/terima_barang', 'TerimaBarangControoler@index')->name('terima_baran
 
 Route::group(['middleware' => ['web', 'checklevel:1']], function(){
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/tiket', 'TiketController@index')->name('tiket.index');
+    Route::get('/tiket/data', 'TiketController@data')->name('tiket.data');
+    Route::get('/tiket/done/{id}', 'TiketController@done')->name('tiket.done');
 });
 Route::group(['middleware' => ['web', 'checklevel:2']], function(){
 

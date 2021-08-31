@@ -13,31 +13,23 @@
 
 <div class="card">    
     <div class="card-body">
-        <table class="table">
+        <table class="table table-tiket">
             <thead>
                 <tr>
                     <th scope="col">No Tiket</th>
                     <th scope="col">UserId</th>
-                    <th scope="col">Cif</th>
+                    <th scope="col">CIF</th>
+                    <th scope="col">Tanggal Transaksi</th>
+                    <th scope="col">Jenis Transaksi</th>
                     <th scope="col">Kode Transaksi</th>
                     <th scope="col">Keterangan</th>
+                    <th scope="col">FU Helpdesk</th>
+                    <th scope="col">Status Tiket</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>708099SDA</td>
-                    <td>BU/3002fjk12</td>
-                    <td>Salah Nominal</td>
-                    <td>
-                        <div class="btn-group btn-group-toggle">
-                            <a class="btn btn-warning" href="#" role="button"><i class="fas fa-pencil-alt"></i></a>
-                            <a class="btn btn-danger" href="#" role="button"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </td>
-                </tr>
+                
              </tbody>
         </table>
     </div>
@@ -77,18 +69,7 @@
                         <select required class="form-control" id="jenis_transaksi">
                             <option value="" disabled selected>-Pilih Salah Satu-</option>
                             @foreach($jenis_transaksi as $list)
-                            <option value="{{$list->id}}">{{$list->jenis_transaksi}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="kode_jurnal">Kode Jurnal</label>
-                        <select required class="form-control" id="kode_jurnal">
-                        <option value="" disabled selected>-Pilih Salah Satu-</option>
-                            @foreach($kode_jurnal as $list_kode)
-                            <option value="{{$list_kode->id}}">{{$list_kode->kode_jurnal}}</option>
+                            <option value="{{$list->id}}">{{$list->keterangan_transaksi}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -108,11 +89,64 @@
     </div>
   </div>
 </div>
+@if ($errors->any())
+  <script>
+    var pesan = "{{$errors->first()}}"
+    swal("Maaf !", pesan, "error"); 
+  </script>
+@elseif ($message = Session::get('success'))
+<script>
+  var pesan = "{{$message}}"
+  swal("Selamat !", pesan, "success"); 
+</script>
+@elseif ($message = Session::get('error'))
+<script>
+  var pesan = "{{$message}}"
+  swal("Maaf !", pesan, "error"); 
+</script>
+@endif
 @endsection
 
 
 @section('script')
 <script>
     $('body').addClass('sidebar-collapse');
+</script>
+<script type="text/javascript">
+var table, save_method, table1;
+
+  var url = "{{ route('tiket.data') }}";
+   table = $('.table-tiket').DataTable({
+     "serverside" : true,
+     dom: 'Bfrtip',
+        buttons: [
+        ],
+     "ajax" : {
+       "url" : url,
+       "type" : "GET"
+     }
+
+   });
+   $('div.dataTables_filter input').focus(); 
+
+   function done(id){
+    
+    swal({
+    title: "Anda Yakin?",
+    text: "Tiket Yang sudah diselesaikan tidak akan dapat dirubah kembali!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          url = "{{route('tiket.done',':id')}}"
+          url = url.replace(':id',id);
+          window.location.href = url;
+        } else {
+          swal("Tiket Anda Masih Dalam Proses!");
+        }
+      });
+  }
 </script>
 @endsection

@@ -16,6 +16,7 @@ class CreateKodeJurnalsTable extends Migration
         Schema::create('kode_jurnal', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode_jurnal');
+            $table->string('keterangan_jurnal');
             $table->timestamps();
         });
     }

@@ -53,6 +53,21 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+        
+        'mysql2' => [
+            'driver' => 'mysql',
+            'host' => env('127.0.0.1'),
+            'port' => env('3306'),
+            'database' => env('DB_DATABASE_SECOND', 'forge'),
+            'username' => env('DB_USERNAME_SECOND', 'forge'),
+            'password' => env('DB_PASSWORD_SECOND', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',

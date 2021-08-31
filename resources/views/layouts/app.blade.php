@@ -21,7 +21,9 @@
   <link rel="stylesheet" href="{{asset('public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('public/plugins/daterangepicker/daterangepicker.css')}}">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="shortcut icon" href="#">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -196,6 +198,7 @@
 <script src="{{asset('public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('public/dist/js/adminlte.js')}}"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js"></script>
 @yield('script')
 </body>
 </html>

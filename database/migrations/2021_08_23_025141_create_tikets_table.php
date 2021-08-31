@@ -23,6 +23,7 @@ class CreateTiketsTable extends Migration
             $table->string('jenis_transaksi');
             $table->text('keterangan');
             $table->integer('status');
+            $table->string('status_user');
             $table->timestamps();
         });
     }
